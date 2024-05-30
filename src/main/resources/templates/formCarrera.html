@@ -6,25 +6,27 @@
 <link rel="stylesheet"
 	data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
 
-<title>Insert title here</title>
+<title>Formulario Carreras</title>
 </head>
 <body>
 	<div class="container">
 		<h1>FORMULARIO CARRERA</h1>
-		<form data-th-object="${nuevaCarrera}">
+		<form data-th-object="${nuevaCarrera}" 
+		data-th-action="@{/guardarCarrera}" 
+		method="post">
 			<div class="col-sm-6">
 				<label for="codigo" class="form-label">Codigo</label> 
-				<input type="text" class="form-control"	id="codigo">				
+				<input type="text" class="form-control"	id="codigo" data-th-field="*{codigo}">				
 			</div>
 			
 			<div class="col-sm-6">
 				<label for="nombre" class="form-label">Nombre Carrera</label>
-				<input type="text" class="form-control"	id="nombre">
+				<input type="text" class="form-control"	id="nombre" data-th-field="*{nombre}">
 			</div>
 			
 			<div class="col-sm-6">
 				<label for="cantidad" class="form-label">Cantidad Años</label>
-				<input type="number" class="form-control" id="cantidad">
+				<input type="number" class="form-control" id="cantidad" data-th-field="*{cantidadAnios}">
 			</div>
 			<button type="submit" class="btn btn-primary">Guardar Carrera</button>
 		</form>

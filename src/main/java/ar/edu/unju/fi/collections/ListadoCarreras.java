@@ -26,6 +26,8 @@ public class ListadoCarreras {
 
 		  // Método para agregar una carrera
 		  public static void agregarCarrera(Carrera c) {
+			//agregando el estado
+			c.setEstado(true);
 		    carreras.add(c);
 		  }
 
