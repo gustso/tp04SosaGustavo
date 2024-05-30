@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:object="${nuevoDocente}" th:action="${band}?@{/modificarDocente}:@{/guardarDocente}" method="post" enctype="multipart/form-data">
+		<div class="row g-3">
+		
+			<input type="hidden" class="form-control" th:if="${band}" th:field="*{id_Docente}">
+			
+				<div class="col-md-6">
+				    <label for="nombreID" class="form-label">Nombre</label>
+				    <input type="text" class="form-control" id="nombreID" title="Ingresa un nombre valido, sin números o caracteres especiales." pattern="[A-Za-z\s]+" th:field="*{nombre}" required>
+				</div>
+				<div class="col-md-6">
+				    <label for="apellidoID" class="form-label">Apellido</label>
+				    <input type="text" class="form-control" id="apellidoID" th:field="*{apellido}" pattern="[A-Za-z\s]+" title="Ingresa un apellido valido, sin números o caracteres especiales." required>
+				</div>
+				<div class="col-md-12">
+				    <label for="contraseniaID" class="form-label">Contraseña</label>
+				    <input type="password" class="form-control" id="contraseniaID" th:field="*{contrasenia}" title="Ingresa una contraseña." required>
+				</div>
+				<div class="col-md-12">
+				    <label for="dniID" class="form-label">DNI</label>
+				    <input type="number" class="form-control" id="dniID" th:field="*{dni}" min="1000000" max="99999999" title="Ingresa un número de 8 digitos." required>
+				</div>
+				<div class="col-md-6">
+				    <label for="telID" class="form-label">Número de Télefono</label>
+				    <input type="tel" class="form-control" id="telID" th:field="*{telefono}" pattern="\d{10}" title="Ingresa un número de 10 dígitos." required>		    
+				</div>
+				<div class="col-md-6">
+				    <label for="correoID" class="form-label">Correo</label>
+				    <input type="email" class="form-control" id="correoID" title="Ingresa un correo valido." th:field="*{correo}">
+				</div>
+				<div class="col-md-4">
+				    <label for="localidadID" class="form-label">Localidad</label>
+				    <input type="text" class="form-control" id="localidadID" th:field="*{localidad}" required>
+				</div>
+				
+				<div class="col-md-8">
+				    <label for="direccionID" class="form-label">Dirección</label>
+				    <input type="text" class="form-control" id="direccionID" th:field="*{direccion}" required>
+				</div>
+				
+				<div class="col-md-4">
+				    <label for="materiaID" class="form-label">Materia</label>
+				    <input type="text" class="form-control" id="materiaID" th:field="*{materia}" required>
+				</div>
+				<div class="col-md-5">
+				    <label for="legajoID" class="form-label">Legajo</label>
+				    <input type="number" class="form-control" id="legajoID" th:field="*{legajo}" title="Ingresa un número de 4 dígitos." min="1000" max="9999" required>
+				</div>
+				
+				<div class="mb-e">
+				    <label class="form-label" th:if="${band == false}">Foto: </label>
+				    <input class="form-control" type="file" name="file" accept="image/x-png,image/gif,image/png,image/jpeg" onchange="loadFile(event)">
+				    <img id="output" style="padding-top: 2px; width: 146px;">
+				</div>
+				
+			</div>
+			<button class="btn btn-success rounded-pill" type="submit">Registrar</button>
+		</form>
+</body>
+</html>
