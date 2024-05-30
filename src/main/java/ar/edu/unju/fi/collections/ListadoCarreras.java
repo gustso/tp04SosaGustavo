@@ -11,6 +11,8 @@ public class ListadoCarreras {
 	
 	// Método para listar carreras
 		  public static List<Carrera> listarCarreras() {
+			  //buscar solo los que tengan estado en true
+			  
 		    return carreras;
 		  }
 
@@ -44,7 +46,17 @@ public class ListadoCarreras {
 
 		  // Método para eliminar una carrera
 		  public static void eliminarCarrera(String codigo) {
-		    carreras.removeIf(carrera -> carrera.getCodigo().equals(codigo));
+			  //borrado físico
+		    //carreras.removeIf(carrera -> carrera.getCodigo().equals(codigo));
+			  
+			  //borrado lógico
+			  for (int i = 0; i < carreras.size(); i++) {
+			      Carrera carrera = carreras.get(i);
+			      if (carrera.getCodigo().equals(codigo)) {
+			        carrera.setEstado(false);;
+			        break;
+			      }
+			    }
 		  }
 
 }
