@@ -35,6 +35,7 @@ public class ListadoCarreras {
 
 		  // Método para modificar una carrera
 		  public static void modificarCarrera(Carrera carreraModificada) {
+			  carreraModificada.setEstado(true);
 		    for (int i = 0; i < carreras.size(); i++) {
 		      Carrera carrera = carreras.get(i);
 		      if (carrera.getCodigo().equals(carreraModificada.getCodigo())) {
